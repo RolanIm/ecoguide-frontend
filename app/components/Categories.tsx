@@ -16,8 +16,6 @@ const Categories = () => {
             checkIn: searchModal.query.checkIn,
             checkOut: searchModal.query.checkOut,
             guests: searchModal.query.guests,
-            bedrooms: searchModal.query.bedrooms,
-            bathrooms: searchModal.query.bathrooms,
             category: _category
         }
 
@@ -36,7 +34,7 @@ const Categories = () => {
                     height={20}
                 />
 
-                <span className='text-xs'>All</span>
+                <span className='text-xs'>Все</span>
             </div>
             
             <div 
@@ -49,7 +47,7 @@ const Categories = () => {
                     height={20}
                 />
 
-                <span className='text-xs'>Beach</span>
+                <span className='text-xs'>Заповедники</span>
             </div>
 
             <div 
@@ -62,7 +60,7 @@ const Categories = () => {
                     height={20}
                 />
 
-                <span className='text-xs'>Villas</span>
+                <span className='text-xs'>Озера и реки</span>
             </div>
 
             <div 
@@ -75,7 +73,7 @@ const Categories = () => {
                     height={20}
                 />
 
-                <span className='text-xs'>Cabins</span>
+                <span className='text-xs'>Горы</span>
             </div>
 
             <div
@@ -88,7 +86,7 @@ const Categories = () => {
                     height={20}
                 />
 
-                <span className='text-xs'>Tiny homes</span>
+                <span className='text-xs'>Памятники</span>
             </div>
         </div>
     )

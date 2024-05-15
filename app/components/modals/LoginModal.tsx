@@ -41,9 +41,9 @@ const LoginModal = () => {
                 action={submitLogin}
                 className="space-y-4"
             >
-                <input onChange={(e) => setEmail(e.target.value)} placeholder="Your e-mail address" type="email" className="w-full h-[54px] px-4 border border-gray-300 rounded-xl" />
+                <input onChange={(e) => setEmail(e.target.value)} placeholder="Ваш e-mai адресс" type="email" className="w-full h-[54px] px-4 border border-gray-300 rounded-xl" />
 
-                <input onChange={(e) => setPassword(e.target.value)} placeholder="Your password" type="password" className="w-full h-[54px] px-4 border border-gray-300 rounded-xl" />
+                <input onChange={(e) => setPassword(e.target.value)} placeholder="Ваш пароль" type="password" className="w-full h-[54px] px-4 border border-gray-300 rounded-xl" />
             
                 {errors.map((error, index) => {
                     return (
@@ -57,7 +57,7 @@ const LoginModal = () => {
                 })}
 
                 <CustomButton
-                    label="Submit"
+                    label="Подтвердить"
                     onClick={submitLogin}
                 />
             </form>
@@ -68,7 +68,7 @@ const LoginModal = () => {
         <Modal
             isOpen={loginModal.isOpen}
             close={loginModal.close}
-            label="Log in"
+            label="Авторизация"
             content={content}
         />
     )

@@ -5,8 +5,6 @@ export type SearchQuery = {
     checkIn: Date | undefined;
     checkOut: Date | undefined;
     guests: Number;
-    bathrooms: Number;
-    bedrooms: Number;
     category: string;
 }
 
@@ -26,12 +24,10 @@ const useSearchModal = create<SearchModalStore>((set) => ({
     close: () => set({ isOpen: false }),
     setQuery: (query: SearchQuery) => set({query: query}),
     query: {
-        country: '',
+        country: undefined,
         checkIn: undefined,
         checkOut: undefined,
         guests: 1,
-        bedrooms: 0,
-        bathrooms: 0,
         category: ''
     }
 }));

@@ -27,7 +27,7 @@ const PropertyDetailPage = async ({params}: { params: {id: string }}) => {
                     <h1 className="mb-4 text-4xl">{property.title}</h1>
 
                     <span className="mb-6 block text-lg text-gray-600">
-                        {property.guests} guests - {property.bedrooms} bedrooms - {property.bathrooms} bathrooms
+                    {property.guests} guests
                     </span>
 
                     <hr />
@@ -46,7 +46,7 @@ const PropertyDetailPage = async ({params}: { params: {id: string }}) => {
                             />
                         )}
 
-                        <p><strong>{property.landlord.name}</strong> is your host</p>
+                        <p><strong>{property.landlord.name}</strong> Это ваш аккаунт</p>
                     </Link>
 
                     <hr />

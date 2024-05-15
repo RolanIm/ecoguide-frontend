@@ -43,15 +43,7 @@ const UserNav: React.FC<UserNavProps> = ({
                     {userId ? (
                         <>
                             <MenuLink
-                                label='Inbox'
-                                onClick={() => {
-                                    setIsOpen(false);
-                                    router.push('/inbox');
-                                }}
-                            />
-
-                            <MenuLink
-                                label='My properties'
+                                label='Мои достопримечательности'
                                 onClick={() => {
                                     setIsOpen(false);
                                     router.push('/myproperties');
@@ -59,7 +51,7 @@ const UserNav: React.FC<UserNavProps> = ({
                             />
 
                             <MenuLink
-                                label='My favorites'
+                                label='Избранное'
                                 onClick={() => {
                                     setIsOpen(false);
                                     router.push('/myfavorites');
@@ -67,7 +59,7 @@ const UserNav: React.FC<UserNavProps> = ({
                             />
 
                             <MenuLink
-                                label='My reservations'
+                                label='Забронированное'
                                 onClick={() => {
                                     setIsOpen(false);
                                     router.push('/myreservations');
@@ -79,7 +71,7 @@ const UserNav: React.FC<UserNavProps> = ({
                     ) : (
                         <>
                             <MenuLink 
-                                label='Log in'
+                                label='Авторизация'
                                 onClick={() => {
                                     setIsOpen(false);
                                     loginModal.open();
@@ -87,7 +79,7 @@ const UserNav: React.FC<UserNavProps> = ({
                             />
 
                             <MenuLink 
-                                label='Sign up'
+                                label='Регистрация'
                                 onClick={() => {
                                     setIsOpen(false);
                                     signupModal.open();

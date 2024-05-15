@@ -23,8 +23,6 @@ const AddPropertyModal = () => {
     const [dataTitle, setDataTitle] = useState('');
     const [dataDescription, setDataDescription] = useState('');
     const [dataPrice, setDataPrice] = useState('');
-    const [dataBedrooms, setDataBedrooms] = useState('');
-    const [dataBathrooms, setDataBathrooms] = useState('');
     const [dataGuests, setDataGuests] = useState('');
     const [dataCountry, setDataCountry] = useState<SelectCountryValue>();
     const [dataImage, setDataImage] = useState<File | null>(null);
@@ -69,8 +67,6 @@ const AddPropertyModal = () => {
             formData.append('title', dataTitle);
             formData.append('description', dataDescription);
             formData.append('price_per_night', dataPrice);
-            formData.append('bedrooms', dataBedrooms);
-            formData.append('bathrooms', dataBathrooms);
             formData.append('guests', dataGuests);
             formData.append('country', dataCountry.label);
             formData.append('country_code', dataCountry.value);
@@ -103,7 +99,7 @@ const AddPropertyModal = () => {
         <>
             {currentStep == 1 ? (
                 <>
-                    <h2 className='mb-6 text-2xl'>Choose category</h2>
+                    <h2 className='mb-6 text-2xl'>Выберите категорию</h2>
 
                     <Categories
                         dataCategory={dataCategory}
@@ -111,13 +107,13 @@ const AddPropertyModal = () => {
                     />
 
                     <CustomButton
-                        label='Next'
+                        label='Далее'
                         onClick={() => setCurrentStep(2)}
                     />
                 </>
             ) : currentStep == 2 ? (
                 <>
-                    <h2 className='mb-6 text-2xl'>Describe your place</h2>
+                    <h2 className='mb-6 text-2xl'>Опишите местоположение</h2>
 
                     <div className='pt-3 pb-6 space-y-4'>
                         <div className='flex flex-col space-y-2'>
@@ -141,19 +137,19 @@ const AddPropertyModal = () => {
                     </div>
 
                     <CustomButton
-                        label='Previous'
+                        label='Назад'
                         className='mb-2 bg-black hover:bg-gray-800'
                         onClick={() => setCurrentStep(1)}
                     />
 
                     <CustomButton
-                        label='Next'
+                        label='Далее'
                         onClick={() => setCurrentStep(3)}
                     />
                 </>
             ) : currentStep == 3 ? (
                 <>
-                    <h2 className='mb-6 text-2xl'>Details</h2>
+                    <h2 className='mb-6 text-2xl'>Детали</h2>
 
                     <div className='pt-3 pb-6 space-y-4'>
                         <div className='flex flex-col space-y-2'>
@@ -162,26 +158,6 @@ const AddPropertyModal = () => {
                                 type="number"
                                 value={dataPrice}
                                 onChange={(e) => setDataPrice(e.target.value)}
-                                className='w-full p-4 border border-gray-600 rounded-xl'
-                            />
-                        </div>
-
-                        <div className='flex flex-col space-y-2'>
-                            <label>Bedrooms</label>
-                            <input
-                                type="number"
-                                value={dataBedrooms}
-                                onChange={(e) => setDataBedrooms(e.target.value)}
-                                className='w-full p-4 border border-gray-600 rounded-xl'
-                            />
-                        </div>
-
-                        <div className='flex flex-col space-y-2'>
-                            <label>Bathrooms</label>
-                            <input
-                                type="number"
-                                value={dataBathrooms}
-                                onChange={(e) => setDataBathrooms(e.target.value)}
                                 className='w-full p-4 border border-gray-600 rounded-xl'
                             />
                         </div>
@@ -198,19 +174,19 @@ const AddPropertyModal = () => {
                     </div>
 
                     <CustomButton
-                        label='Previous'
+                        label='Назад'
                         className='mb-2 bg-black hover:bg-gray-800'
                         onClick={() => setCurrentStep(2)}
                     />
 
                     <CustomButton
-                        label='Next'
+                        label='Далее'
                         onClick={() => setCurrentStep(4)}
                     />
                 </>
             ) : currentStep == 4 ? (
                 <>
-                    <h2 className='mb-6 text-2xl'>Location</h2>
+                    <h2 className='mb-6 text-2xl'>Местоположение</h2>
 
                     <div className='pt-3 pb-6 space-y-4'>
                         <SelectCountry 
@@ -220,19 +196,19 @@ const AddPropertyModal = () => {
                     </div>
 
                     <CustomButton
-                        label='Previous'
+                        label='Назад'
                         className='mb-2 bg-black hover:bg-gray-800'
                         onClick={() => setCurrentStep(3)}
                     />
 
                     <CustomButton
-                        label='Next'
+                        label='Далее'
                         onClick={() => setCurrentStep(5)}
                     />
                 </>
             ) : (
                 <>
-                    <h2 className='mb-6 text-2xl'>Image</h2>
+                    <h2 className='mb-6 text-2xl'>Фото</h2>
 
                     <div className='pt-3 pb-6 space-y-4'>
                         <div className='py-4 px-6 bg-gray-600 text-white rounded-xl'>
@@ -267,13 +243,13 @@ const AddPropertyModal = () => {
                     })}
 
                     <CustomButton
-                        label='Previous'
+                        label='Назад'
                         className='mb-2 bg-black hover:bg-gray-800'
                         onClick={() => setCurrentStep(4)}
                     />
 
                     <CustomButton
-                        label='Submit'
+                        label='Готово'
                         onClick={submitForm}
                     />
                 </>

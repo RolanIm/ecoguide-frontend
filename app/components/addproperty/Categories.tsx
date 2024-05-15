@@ -23,7 +23,7 @@ const Categories: React.FC<CategoriesProps> = ({
                         height={20}
                     />
 
-                    <span className='text-xs'>Beach</span>
+                    <span className='text-xs'>Заповедники</span>
                 </div>
 
                 <div 
@@ -37,7 +37,7 @@ const Categories: React.FC<CategoriesProps> = ({
                         height={20}
                     />
 
-                    <span className='text-xs'>Villas</span>
+                    <span className='text-xs'>Озера и реки</span>
                 </div>
 
                 <div 
@@ -51,7 +51,7 @@ const Categories: React.FC<CategoriesProps> = ({
                         height={20}
                     />
 
-                    <span className='text-xs'>Cabins</span>
+                    <span className='text-xs'>Горы</span>
                 </div>
 
                 <div 
@@ -65,7 +65,7 @@ const Categories: React.FC<CategoriesProps> = ({
                         height={20}
                     />
 
-                    <span className='text-xs'>Tiny homes</span>
+                    <span className='text-xs'>Памятники</span>
                 </div>
             </div>
         </>

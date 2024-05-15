@@ -149,11 +149,11 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
                 onClick={performBooking}
                 className="w-full mb-6 py-6 text-center text-white bg-airbnb hover:bg-airbnb-dark rounded-xl"
             >
-                Book
+                Забронировать
             </div>
 
             <div className="mb-4 flex justify-between align-center">
-                <p>${property.price_per_night} * {nights} nights</p>
+                <p>${property.price_per_night} * {nights} ночей</p>
 
                 <p>${property.price_per_night * nights}</p>
             </div>

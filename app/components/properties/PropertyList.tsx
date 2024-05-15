@@ -26,17 +26,14 @@ const PropertyList: React.FC<PropertyListProps> = ({
 }) => {
     const params = useSearchParams();
     const searchModal = useSearchModal();
-    const country = searchModal.query.country;
+    const region = searchModal.query.region;
     const numGuests = searchModal.query.guests;
-    const numBathrooms = searchModal.query.bathrooms;
-    const numBedrooms = searchModal.query.bedrooms;
     const checkinDate = searchModal.query.checkIn;
     const checkoutDate = searchModal.query.checkOut;
     const category = searchModal.query.category;
     const [properties, setProperties] = useState<PropertyType[]>([]);
 
     console.log('searchQUery:', searchModal.query);
-    console.log('numBedrooms', numBedrooms)
 
     const markFavorite = (id: string, is_favorite: boolean) => {
         const tmpProperties = properties.map((property: PropertyType) => {
@@ -66,20 +63,12 @@ const PropertyList: React.FC<PropertyListProps> = ({
         } else {
             let urlQuery = '';
 
-            if (country) {
-                urlQuery += '&country=' + country
+            if (region) {
+                urlQuery += '&region=' + region
             }
 
             if (numGuests) {
                 urlQuery += '&numGuests=' + numGuests
-            }
-
-            if (numBedrooms) {
-                urlQuery += '&numBedrooms=' + numBedrooms
-            }
-
-            if (numBathrooms) {
-                urlQuery += '&numBathrooms=' + numBathrooms
             }
 
             if (category) {

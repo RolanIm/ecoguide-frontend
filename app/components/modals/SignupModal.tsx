@@ -71,7 +71,7 @@ const SignupModal = () => {
                 })}
 
                 <CustomButton
-                    label="Submit"
+                    label="Подтвердить"
                     onClick={submitSignup}
                 />
             </form>
@@ -82,7 +82,7 @@ const SignupModal = () => {
         <Modal
             isOpen={signupModal.isOpen}
             close={signupModal.close}
-            label="Sign up"
+            label="Зарегистрироваться"
             content={content}
         />
     )
