@@ -66,7 +66,7 @@ const AddPropertyModal = () => {
             formData.append('category', dataCategory);
             formData.append('title', dataTitle);
             formData.append('description', dataDescription);
-            formData.append('price_per_night', dataPrice);
+            formData.append('price_per_nights', dataPrice);
             formData.append('guests', dataGuests);
             formData.append('country', dataCountry.label);
             formData.append('country_code', dataCountry.value);
@@ -117,7 +117,7 @@ const AddPropertyModal = () => {
 
                     <div className='pt-3 pb-6 space-y-4'>
                         <div className='flex flex-col space-y-2'>
-                            <label>Title</label>
+                            <label>Название</label>
                             <input
                                 type="text"
                                 value={dataTitle}
@@ -127,7 +127,7 @@ const AddPropertyModal = () => {
                         </div>
 
                         <div className='flex flex-col space-y-2'>
-                            <label>Description</label>
+                            <label>Описание</label>
                             <textarea
                                 value={dataDescription}
                                 onChange={(e) => setDataDescription(e.target.value)}
@@ -153,7 +153,7 @@ const AddPropertyModal = () => {
 
                     <div className='pt-3 pb-6 space-y-4'>
                         <div className='flex flex-col space-y-2'>
-                            <label>Price per night</label>
+                            <label>Цена за одну ночь</label>
                             <input
                                 type="number"
                                 value={dataPrice}
@@ -163,7 +163,7 @@ const AddPropertyModal = () => {
                         </div>
 
                         <div className='flex flex-col space-y-2'>
-                            <label>Maximum number of guests</label>
+                            <label>Максимальная вместимость</label>
                             <input
                                 type="number"
                                 value={dataGuests}
@@ -262,7 +262,7 @@ const AddPropertyModal = () => {
             <Modal
                 isOpen={addPropertyModal.isOpen}
                 close={addPropertyModal.close}
-                label="Add property"
+                label="Добавить запись" 
                 content={content}
             />
         </>

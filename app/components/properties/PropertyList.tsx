@@ -26,7 +26,7 @@ const PropertyList: React.FC<PropertyListProps> = ({
 }) => {
     const params = useSearchParams();
     const searchModal = useSearchModal();
-    const region = searchModal.query.region;
+    const country = searchModal.query.country;
     const numGuests = searchModal.query.guests;
     const checkinDate = searchModal.query.checkIn;
     const checkoutDate = searchModal.query.checkOut;
@@ -63,8 +63,8 @@ const PropertyList: React.FC<PropertyListProps> = ({
         } else {
             let urlQuery = '';
 
-            if (region) {
-                urlQuery += '&region=' + region
+            if (country) {
+                urlQuery += '&country=' + country
             }
 
             if (numGuests) {

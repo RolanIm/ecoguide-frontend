@@ -27,17 +27,17 @@ const MyReservationsPage = async () => {
                             <div className="col-span-1 md:col-span-3">
                                 <h2 className="mb-4 text-xl">{reservation.property.title}</h2>
 
-                                <p className="mb-2"><strong>Check in date:</strong> {reservation.start_date}</p>
-                                <p className="mb-2"><strong>Check out date:</strong> {reservation.end_date}</p>
+                                <p className="mb-2"><strong>Дата заезда:</strong> {reservation.start_date}</p>
+                                <p className="mb-2"><strong>Дата выезда:</strong> {reservation.end_date}</p>
 
-                                <p className="mb-2"><strong>Number of nights:</strong> {reservation.number_of_nights}</p>
-                                <p className="mb-2"><strong>Total price:</strong> ${reservation.total_price}</p>
+                                <p className="mb-2"><strong>Количество ночей:</strong> {reservation.number_of_nights}</p>
+                                <p className="mb-2"><strong>Всего:</strong> {reservation.total_price} ₽</p>
 
                                 <Link 
                                     href={`/properties/${reservation.property.id}`}
                                     className="mt-6 inline-block cursor-pointer py-4 px-6 bg-airbnb text-white rounded-xl"
                                 >
-                                    Go to property
+                                    Перейти
                                 </Link>
                             </div>
                         </div>

@@ -14,22 +14,22 @@ const SearchFilters = () => {
                 <div className="flex flex-row items-center justify-between">
                     <div className="cursor-pointer w-[250px] h-[48px] lg:h-[64] px-8 flex flex-col justify-center rounded-full hover:bg-gray-100">
                         <p className="text-xs font-semibold">Куда</p>
-                        <p className="text-sm">Желаемое местоположение</p>
+                        <p className="text-sm">Местоположение</p>
                     </div>
 
                     <div className="cursor-pointer h-[48px] lg:h-[64] px-8 flex flex-col justify-center rounded-full hover:bg-gray-100">
-                        <p className="text-xs font-semibold">Время заселения</p>
+                        <p className="text-xs font-semibold">Дата поездки</p>
                         <p className="text-sm">Добавить дату</p>
                     </div>
                     
                     <div className="cursor-pointer h-[48px] lg:h-[64] px-8 flex flex-col justify-center rounded-full hover:bg-gray-100">
-                        <p className="text-xs font-semibold">Время выселения</p>
+                        <p className="text-xs font-semibold">Дата выезда</p>
                         <p className="text-sm">Добавить дату</p>
                     </div>
 
                     <div className="cursor-pointer h-[48px] lg:h-[64] px-8 flex flex-col justify-center rounded-full hover:bg-gray-100">
-                        <p className="text-xs font-semibold">Кто</p>
-                        <p className="text-sm">Добавить дату</p>
+                        <p className="text-xs font-semibold">Количество человек</p>
+                        <p className="text-sm">Добавить количество</p>
                     </div>
                 </div>
             </div>

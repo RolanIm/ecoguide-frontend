@@ -123,12 +123,12 @@ const SearchModal = () => {
 
             <div className="space-y-4">
                 <div className="space-y-4">
-                    <label>Number of guests:</label>
+                    <label>Число гостей:</label>
                     <input 
                         type="number" 
                         min="1" 
                         value={numGuests} 
-                        placeholder="Number of guests..."
+                        placeholder="Число гостей..."
                         onChange={(e) => setNumGuests(e.target.value)} 
                         className="w-full h-14 px-4 border border-gray-300 rounded-xl"
                     />
@@ -161,7 +161,7 @@ const SearchModal = () => {
 
     return (
         <Modal
-            label="Search"
+            label="Поиск"
             content={content}
             close={searchModal.close}
             isOpen={searchModal.isOpen}
