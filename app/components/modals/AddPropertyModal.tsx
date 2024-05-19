@@ -1,22 +1,17 @@
 'use client';
 
 import Image from 'next/image';
-
 import { ChangeEvent, useState } from 'react';
 import Modal from './Modal';
 import CustomButton from '../forms/CustomButton';
 import Categories from '../addproperty/Categories';
-
 import useAddPropertyModal from '@/app/hooks/useAddPropertyModal';
-import SelectCountry, {SelectCountryValue} from '../forms/SelectCountry';
-
+import SelectCountry, { SelectCountryValue } from '../forms/SelectCountry';
 import apiService from '@/app/services/apiService';
 import { useRouter } from 'next/navigation';
 
 const AddPropertyModal = () => {
-    //
     // States
-
     const [currentStep, setCurrentStep] = useState(1);
     const [errors, setErrors] = useState<string[]>([]);
     const [dataCategory, setDataCategory] = useState('');
@@ -27,33 +22,33 @@ const AddPropertyModal = () => {
     const [dataCountry, setDataCountry] = useState<SelectCountryValue>();
     const [dataImage, setDataImage] = useState<File | null>(null);
 
-    //
-    //
-
     const addPropertyModal = useAddPropertyModal();
     const router = useRouter();
 
-    //
-    // Set datas
+    // Reset form data
+    const resetForm = () => {
+        setCurrentStep(1);
+        setDataCategory('');
+        setDataTitle('');
+        setDataDescription('');
+        setDataPrice('');
+        setDataGuests('');
+        setDataCountry(undefined);
+        setDataImage(null);
+        setErrors([]);
+    };
 
-    const setCategory = (category: string) => {
-        setDataCategory(category)
-    }
-
+    // Set data
+    const setCategory = (category: string) => setDataCategory(category);
     const setImage = (event: ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
             const tmpImage = event.target.files[0];
-
             setDataImage(tmpImage);
         }
-    }
+    };
 
-    //
-    // SUbmit
-
+    // Submit
     const submitForm = async () => {
-        console.log('submitForm');
-
         if (
             dataCategory &&
             dataTitle &&
@@ -75,46 +70,33 @@ const AddPropertyModal = () => {
             const response = await apiService.post('/api/properties/create/', formData);
 
             if (response.success) {
-                console.log('SUCCESS :-D');
-
-                router.push('/?added=true');
-
+                resetForm(); // Reset form after success
                 addPropertyModal.close();
+                router.push('/?added=true');
             } else {
-                console.log('Error');
-
-                const tmpErrors: string[] = Object.values(response).map((error: any) => {
-                    return error;
-                })
-
-                setErrors(tmpErrors)
+                const tmpErrors: string[] = Object.values(response).map((error: any) => error);
+                setErrors(tmpErrors);
             }
         }
-    }
-
-    //
-    //
+    };
 
     const content = (
         <>
-            {currentStep == 1 ? (
+            {currentStep === 1 ? (
                 <>
                     <h2 className='mb-6 text-2xl'>Выберите категорию</h2>
-
                     <Categories
                         dataCategory={dataCategory}
                         setCategory={(category) => setCategory(category)}
                     />
-
                     <CustomButton
                         label='Далее'
                         onClick={() => setCurrentStep(2)}
                     />
                 </>
-            ) : currentStep == 2 ? (
+            ) : currentStep === 2 ? (
                 <>
                     <h2 className='mb-6 text-2xl'>Опишите местоположение</h2>
-
                     <div className='pt-3 pb-6 space-y-4'>
                         <div className='flex flex-col space-y-2'>
                             <label>Название</label>
@@ -125,7 +107,6 @@ const AddPropertyModal = () => {
                                 className='w-full p-4 border border-gray-600 rounded-xl'
                             />
                         </div>
-
                         <div className='flex flex-col space-y-2'>
                             <label>Описание</label>
                             <textarea
@@ -135,22 +116,19 @@ const AddPropertyModal = () => {
                             ></textarea>
                         </div>
                     </div>
-
                     <CustomButton
                         label='Назад'
                         className='mb-2 bg-black hover:bg-gray-800'
                         onClick={() => setCurrentStep(1)}
                     />
-
                     <CustomButton
                         label='Далее'
                         onClick={() => setCurrentStep(3)}
                     />
                 </>
-            ) : currentStep == 3 ? (
+            ) : currentStep === 3 ? (
                 <>
                     <h2 className='mb-6 text-2xl'>Детали</h2>
-
                     <div className='pt-3 pb-6 space-y-4'>
                         <div className='flex flex-col space-y-2'>
                             <label>Цена за одну ночь</label>
@@ -161,7 +139,6 @@ const AddPropertyModal = () => {
                                 className='w-full p-4 border border-gray-600 rounded-xl'
                             />
                         </div>
-
                         <div className='flex flex-col space-y-2'>
                             <label>Максимальная вместимость</label>
                             <input
@@ -172,35 +149,30 @@ const AddPropertyModal = () => {
                             />
                         </div>
                     </div>
-
                     <CustomButton
                         label='Назад'
                         className='mb-2 bg-black hover:bg-gray-800'
                         onClick={() => setCurrentStep(2)}
                     />
-
                     <CustomButton
                         label='Далее'
                         onClick={() => setCurrentStep(4)}
                     />
                 </>
-            ) : currentStep == 4 ? (
+            ) : currentStep === 4 ? (
                 <>
                     <h2 className='mb-6 text-2xl'>Местоположение</h2>
-
                     <div className='pt-3 pb-6 space-y-4'>
                         <SelectCountry 
                             value={dataCountry}
                             onChange={(value) => setDataCountry(value as SelectCountryValue)}
                         />
                     </div>
-
                     <CustomButton
                         label='Назад'
                         className='mb-2 bg-black hover:bg-gray-800'
                         onClick={() => setCurrentStep(3)}
                     />
-
                     <CustomButton
                         label='Далее'
                         onClick={() => setCurrentStep(5)}
@@ -209,7 +181,6 @@ const AddPropertyModal = () => {
             ) : (
                 <>
                     <h2 className='mb-6 text-2xl'>Фото</h2>
-
                     <div className='pt-3 pb-6 space-y-4'>
                         <div className='py-4 px-6 bg-gray-600 text-white rounded-xl'>
                             <input
@@ -218,7 +189,6 @@ const AddPropertyModal = () => {
                                 onChange={setImage}
                             />
                         </div>
-
                         {dataImage && (
                             <div className='w-[200px] h-[150px] relative'>
                                 <Image
@@ -230,24 +200,19 @@ const AddPropertyModal = () => {
                             </div>
                         )}
                     </div>
-
-                    {errors.map((error, index) => {
-                        return (
-                            <div
-                                key={index}
-                                className='p-5 mb-4 bg-airbnb text-white rounded-xl opacity-80'
-                            >
-                                {error}
-                            </div>
-                        )
-                    })}
-
+                    {errors.map((error, index) => (
+                        <div
+                            key={index}
+                            className='p-5 mb-4 bg-airbnb text-white rounded-xl opacity-80'
+                        >
+                            {error}
+                        </div>
+                    ))}
                     <CustomButton
                         label='Назад'
                         className='mb-2 bg-black hover:bg-gray-800'
                         onClick={() => setCurrentStep(4)}
                     />
-
                     <CustomButton
                         label='Готово'
                         onClick={submitForm}
@@ -255,18 +220,16 @@ const AddPropertyModal = () => {
                 </>
             )}
         </>
-    )
+    );
 
     return (
-        <>
-            <Modal
-                isOpen={addPropertyModal.isOpen}
-                close={addPropertyModal.close}
-                label="Добавить запись" 
-                content={content}
-            />
-        </>
-    )
+        <Modal
+            isOpen={addPropertyModal.isOpen}
+            close={addPropertyModal.close}
+            label="Добавить запись" 
+            content={content}
+        />
+    );
 }
 
 export default AddPropertyModal;
