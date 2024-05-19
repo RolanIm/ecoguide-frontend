@@ -33,8 +33,7 @@ const PropertyDetailPage = async ({params}: { params: {id: string }}) => {
 
                     <hr />
 
-                    <Link 
-                        href={`/landlords/${property.landlord.id}`}
+                    <div 
                         className="py-6 flex items-center space-x-4"
                     >
                         
@@ -48,8 +47,8 @@ const PropertyDetailPage = async ({params}: { params: {id: string }}) => {
                             />
                         )}
 
-                        <p><strong>{property.landlord_title}</strong></p>
-                    </Link>
+                        <p>Опубликовал {property.landlord_title}</p>
+                    </div>
 
                     <hr />
 
